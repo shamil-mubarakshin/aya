@@ -255,13 +255,13 @@ jobs:
   # This is used for merge automation, like Mergify, since GH actions
   # has no concept of "when all status checks pass".
   # https://docs.mergify.com/conditions/#validating-all-status-checks
-  build-workflow-complete:
-    needs:
-      - lint
-      - build-test-aya
-      - build-test-aya-bpf
-      - run-integration-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build Complete
-        run: echo "Build Complete"
+  # build-workflow-complete:
+  #   needs:
+  #     - lint
+  #     - build-test-aya
+  #     - build-test-aya-bpf
+  #     - run-integration-test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Build Complete
+  #       run: echo "Build Complete"
