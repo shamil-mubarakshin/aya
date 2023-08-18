@@ -1,13 +1,14 @@
 name: aya-ci
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
 
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 env:
   CARGO_TERM_COLOR: always
@@ -148,7 +149,7 @@ jobs:
       matrix:
         runner:
           - macos-12
-          - ubuntu-22.04
+          # - ubuntu-22.04
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v3
@@ -195,6 +196,7 @@ jobs:
           set -euxo pipefail
           brew install findutils qemu dpkg pkg-config llvm
           echo /usr/local/opt/llvm/bin >> $GITHUB_PATH
+          brew install qemu@8.0.3
 
       - name: bpf-linker
         if: runner.os == 'macOS'
