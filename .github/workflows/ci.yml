@@ -197,9 +197,10 @@ jobs:
           brew install findutils qemu dpkg pkg-config llvm
           echo /usr/local/opt/llvm/bin >> $GITHUB_PATH
 
-          brew tap-new $USER/local-qemu
-          brew extract --version=8.0.3 qemu $USER/local-qemu
-          brew install qemu@8.0.3
+          brew reinstall qemu
+          # brew tap-new $USER/local-qemu
+          # brew extract --version=8.0.3 qemu $USER/local-qemu
+          # brew install qemu@8.0.3
 
       - name: bpf-linker
         if: runner.os == 'macOS'
